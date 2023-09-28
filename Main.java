@@ -3,6 +3,7 @@ public class Main {
     LinkedListOfInteger lista = new LinkedListOfInteger();
     
     lista.add(1);
+    lista.add(2);
 
     System.out.println(lista.toString());
     }

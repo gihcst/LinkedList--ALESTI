@@ -37,7 +37,24 @@ public class LinkedListOfInteger{
         return count;
     }
 
-    
+    public Integer get(int index){
+        if (index < 0 || index >= count){
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == count - 1){ //se o elemento é unico
+            return tail.element;// return o elemento do nodo que esta sozinho
+        }
+        //criar um nodo auxiliar com referencia para o inicio
+        //inicio = head
+        Node aux = head;
+        int aux_contador = 0;
+        while(aux_contador < index){
+            aux = aux.next;
+            aux_contador++;
+        }
+        return aux.element;
+    }
+
 
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -45,8 +62,9 @@ public class LinkedListOfInteger{
         Node aux = head;
 
         while (aux != null) {
-            s.append("Elemento: ");
+            s.append("Elemento: [");
             s.append(aux.element.toString());
+            s.append("]");
             s.append("\n");
             aux = aux.next;
         }
